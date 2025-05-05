@@ -43,56 +43,71 @@
 //     }
 // }
 // // 4) linerseach in java : ...
-import java.util.Scanner;
-
+// import java.util.Scanner;
+// public class Arraysjv {
+//     public static int linerserach(int numbers[], int key) {
+//         for (int i = 0; i < numbers.length; i++) {
+//             if (numbers[i] == key) {
+//                 return i;
+//             }
+//         }
+//         return -1;
+//     }
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int numbers[] = {1, 2, 3, 4, 5};
+//         System.out.print("Enter ur key value : ");
+//         int key = sc.nextInt();
+//         int index = linerserach(numbers, key);
+//         System.out.print("The key is present in : " + index);
+//     }
+// }
+// // 5) this is finding the smallest and largest from array question
+// public class Arraysjv {
+//     public static int largestNumber(int numbers[]) {
+//         int largest = Integer.MIN_VALUE;
+//         int min = Integer.MAX_VALUE;
+//         for (int i = 0; i < numbers.length; i++) {
+//             if (largest < numbers[i]) {
+//                 largest = numbers[i];
+//             }
+//             if (min > numbers[i]) {
+//                 min = numbers[i];
+//             }
+//         }
+//         System.out.println("The smallest Number is : " + min);
+//         return largest;
+//     }
+//     public static void main(String[] args) {
+//         int numbers[] = {1, 2, 6, 3, 5};
+//         System.out.println("The largest number in array is :" + largestNumber(numbers));
+//     }
+// }
+// // 6) binary search
 public class Arraysjv {
 
-    public static int linerserach(int numbers[], int key) {
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == key) {
-                return i;
+    public static int binarySerach(int numbers[], int key) {
+        int start = 0, end = numbers.length - 1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (numbers[mid] == key) {
+                return mid;
             }
+            if (numbers[mid] < key) {
+                start = mid + 1;
+
+            } else {
+                end = mid - 1;
+            }
+
         }
         return -1;
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int numbers[] = {1, 2, 3, 4, 5};
-        System.out.print("Enter ur key value : ");
-        int key = sc.nextInt();
+        int numbers[] = {2, 4, 6, 8, 10};
+        int key = 8;
 
-        int index = linerserach(numbers, key);
-        System.out.print("The key is present in : " + index);
+        System.out.println("Index of key is : " + binarySerach(numbers, key));
     }
 }
-
-// // this is finding the smallest and largest from array question
-// public class Arraysjv {
-//     public static int largestNumber(int numbers[]) {
-//         int largest = Integer.MIN_VALUE;  //-infinity
-//         int minimum = Integer.MAX_VALUE;
-//         for (int i = 0; i < numbers.length; i++) {
-//             if (largest < numbers[i]) {
-//                 largest = numbers[i];
-//             }
-//             if (minimum > numbers[i]) {
-//                 minimum = numbers[i];
-//             }
-//         }
-//         System.out.println("The smallest value is :" + minimum);
-//         return largest;
-//     }
-//     public static void main(String[] args) {
-//         int numbers[] = {1, 2, 6, 3, 5};
-//         System.out.println(("the largest number is at index: " + largestNumber(numbers)));
-//     }
-// }
-// public class Arraysjv{
-//     public static int binarySearch(){
-//     }
-//     public static void main(String[] args) {
-//         int numbers[] = {2,4,6,8,10,12,14};
-//         int key = 10;
-//     }
-// }

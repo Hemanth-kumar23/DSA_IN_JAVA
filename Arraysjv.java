@@ -84,30 +84,74 @@
 //     }
 // }
 // // 6) binary search
+// public class Arraysjv {
+//     public static int binarySerach(int numbers[], int key) {
+//         int start = 0, end = numbers.length - 1;
+//         while (start <= end) {
+//             int mid = (start + end) / 2;
+//             if (numbers[mid] == key) {
+//                 return mid;
+//             }
+//             if (numbers[mid] < key) {
+//                 start = mid + 1;
+//             } else {
+//                 end = mid - 1;
+//             }
+//         }
+//         return -1;
+//     }
+//     public static void main(String[] args) {
+//         int numbers[] = {2, 4, 6, 8, 10};
+//         int key = 8;
+//         System.out.println("Index of key is : " + binarySerach(numbers, key));
+//     }
+// }
+// // 7) reverse an array
+// public class Arraysjv {
+//     public static void reverse(int numbers[]) {
+//         int first = 0, last = numbers.length - 1;
+//         while (first < last) {
+//             int temp = numbers[first];
+//             numbers[first] = numbers[last];
+//             numbers[last] = temp;
+//             first++;
+//             last--;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         int numbers[] = {2, 4, 6, 8, 10};
+//         System.out.print("Araay before reverse: ");
+//         for (int i = 0; i < numbers.length; i++) {
+//             System.out.print(numbers[i] + " ");
+//         }
+//         System.out.println();
+//         reverse(numbers);
+//         System.out.print("Arrays after reverse : ");
+//         for (int i = 0; i < numbers.length; i++) {
+//             System.out.print(numbers[i] + " ");
+//         }
+//         System.out.println();
+//     }
+// }
+// // 8) pairs in an array : ...
 public class Arraysjv {
 
-    public static int binarySerach(int numbers[], int key) {
-        int start = 0, end = numbers.length - 1;
-        while (start <= end) {
-            int mid = (start + end) / 2;
-            if (numbers[mid] == key) {
-                return mid;
+    public static void PrintPairs(int numbers[]) {
+        int tp = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            int curr = numbers[i];
+            for (int j = i + 1; j < numbers.length; j++) {
+                System.out.print("(" + curr + "," + numbers[j] + ")");
+                tp++;
             }
-            if (numbers[mid] < key) {
-                start = mid + 1;
-
-            } else {
-                end = mid - 1;
-            }
-
+            System.out.println();
         }
-        return -1;
+        System.out.println("Total pairs are : " + tp);
     }
 
     public static void main(String[] args) {
         int numbers[] = {2, 4, 6, 8, 10};
-        int key = 8;
 
-        System.out.println("Index of key is : " + binarySerach(numbers, key));
+        PrintPairs(numbers);
     }
 }

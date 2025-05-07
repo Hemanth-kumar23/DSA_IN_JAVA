@@ -109,13 +109,13 @@
 // // 7) reverse an array
 // public class Arraysjv {
 //     public static void reverse(int numbers[]) {
-//         int first = 0, last = numbers.length - 1;
-//         while (first < last) {
-//             int temp = numbers[first];
-//             numbers[first] = numbers[last];
-//             numbers[last] = temp;
-//             first++;
-//             last--;
+//         int start = 0, end = numbers.length - 1;
+//         while (start < end) {
+//             int temp = numbers[start];
+//             numbers[start] = numbers[end];
+//             numbers[end] = temp;
+//             start++;
+//             end--;
 //         }
 //     }
 //     public static void main(String[] args) {
@@ -134,24 +134,51 @@
 //     }
 // }
 // // 8) pairs in an array : ...
+// public class Arraysjv {
+//     public static void PrintPairs(int numbers[]) {
+//         int tp = 0;
+//         for (int i = 0; i < numbers.length; i++) {
+//             int curr = numbers[i];
+//             for (int j = i + 1; j < numbers.length; j++) {
+//                 System.out.print("(" + curr + "," + numbers[j] + ")");
+//                 tp++;
+//             }
+//             System.out.println();
+//         }
+//         System.out.println("Total pairs are : " + tp);
+//     }
+//     public static void main(String[] args) {
+//         int numbers[] = {2, 4, 6, 8, 10};
+//         PrintPairs(numbers);
+//     }
+// }
+// // 9) subarray : ...
 public class Arraysjv {
 
-    public static void PrintPairs(int numbers[]) {
-        int tp = 0;
+    public static void subarrays(int numbers[]) {
+        int ts = 0;
+        int sum = 0;
         for (int i = 0; i < numbers.length; i++) {
-            int curr = numbers[i];
+            int start = i;
             for (int j = i + 1; j < numbers.length; j++) {
-                System.out.print("(" + curr + "," + numbers[j] + ")");
-                tp++;
+                int end = j;
+                int currentsum = 0;
+                for (int k = start; k <= end; k++) {
+                    System.out.print(numbers[k] + " ");
+                    currentsum += numbers[k];
+                }
+                sum += currentsum;
+                ts++;
+                System.out.println();
             }
             System.out.println();
         }
-        System.out.println("Total pairs are : " + tp);
+        System.out.println("total subarrays are : " + ts);
+        System.out.println("sum of sub array : " + sum);
     }
 
     public static void main(String[] args) {
-        int numbers[] = {2, 4, 6, 8, 10};
-
-        PrintPairs(numbers);
+        int numbers[] = {1, 2, 3, 4, 5, 6};
+        subarrays(numbers);
     }
 }
